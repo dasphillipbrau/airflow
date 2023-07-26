@@ -76,4 +76,8 @@ or
 
             ...
 
+``mask_secret`` can not only receive string values. It is also possible to pass any iterable of string values or a ``Dict[str, str]``.
+When passing a ``Dict[k, v]``, ``v`` will be masked.
+Please keep in mind that if ``v`` is a string, Any ASCII characters that are not numbers, letters or _ will be escaped before being compiled into a regex pattern. This means you may not pass a wildcard pattern, as it will be escaped down the line and interpreted literally. 
+
 The mask must be set before any log/output is produced to have any effect.
